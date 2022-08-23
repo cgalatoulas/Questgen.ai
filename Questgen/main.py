@@ -34,8 +34,8 @@ class QGen:
     def __init__(self):
         
         
-        self.tokenizer = T5Tokenizer.from_pretrained('/var/task/t5-base', local_files_only=True)
-        model = T5ForConditionalGeneration.from_pretrained('Parth/result')
+        self.tokenizer = T5Tokenizer.from_pretrained('/var/task/t5-base/', local_files_only=True)
+        model = T5ForConditionalGeneration.from_pretrained('/var/task/result', local_files_only=True)
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         model.to(device)
         # model.eval()
@@ -194,7 +194,7 @@ class BoolQGen:
        
     def __init__(self):
         self.tokenizer = T5Tokenizer.from_pretrained('/var/task/t5-base', local_files_only=True)
-        model = T5ForConditionalGeneration.from_pretrained('ramsrigouthamg/t5_boolean_questions')
+        model = T5ForConditionalGeneration.from_pretrained('/var/task/t5_boolean_questions', local_files_only=True)
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         model.to(device)
         # model.eval()
@@ -246,7 +246,7 @@ class AnswerPredictor:
           
     def __init__(self):
         self.tokenizer = T5Tokenizer.from_pretrained('/var/task/t5-base', local_files_only=True)
-        model = T5ForConditionalGeneration.from_pretrained('Parth/boolean')
+        model = T5ForConditionalGeneration.from_pretrained('/var/task/boolean', local_files_only=True)
         device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
         model.to(device)
         # model.eval()
